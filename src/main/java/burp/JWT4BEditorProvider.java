@@ -1,5 +1,6 @@
 package burp;
 
+import burp.api.montoya.MontoyaApi;
 import burp.api.montoya.ui.editor.extension.*;
 
 import app.controllers.JWTRequestTabController;
@@ -14,9 +15,11 @@ import model.JWTTabModel;
 
 public class JWT4BEditorProvider implements HttpRequestEditorProvider, HttpResponseEditorProvider {
 	private final RSyntaxTextAreaFactory rSyntaxTextAreaFactory;
+	private MontoyaApi api;
 
-	public JWT4BEditorProvider(RSyntaxTextAreaFactory rSyntaxTextAreaFactory) {
+	public JWT4BEditorProvider(RSyntaxTextAreaFactory rSyntaxTextAreaFactory, MontoyaApi api) {
 		this.rSyntaxTextAreaFactory = rSyntaxTextAreaFactory;
+		this.api = api;
 	}
 
 	@Override
@@ -25,12 +28,12 @@ public class JWT4BEditorProvider implements HttpRequestEditorProvider, HttpRespo
 
 		if (creationContext.editorMode() == EditorMode.DEFAULT) {
 			JWTInterceptModel jwtSTM = new JWTInterceptModel();
-			JWTInterceptTab jwtST = new JWTInterceptTab(jwtSTM, rSyntaxTextAreaFactory);
+			JWTInterceptTab jwtST = new JWTInterceptTab(jwtSTM, rSyntaxTextAreaFactory,api);
 			jwtTC = new JWTRequestInterceptTabController(jwtSTM, jwtST);
 		} else {
 			// Read Only
 			JWTTabModel jwtTM = new JWTTabModel();
-			JWTViewTab jwtVT = new JWTViewTab(jwtTM, rSyntaxTextAreaFactory);
+			JWTViewTab jwtVT = new JWTViewTab(jwtTM, rSyntaxTextAreaFactory, api);
 			jwtTC = new JWTRequestTabController(jwtTM, jwtVT);
 		}
 
@@ -43,12 +46,12 @@ public class JWT4BEditorProvider implements HttpRequestEditorProvider, HttpRespo
 
 		if (creationContext.editorMode() == EditorMode.DEFAULT) {
 			JWTInterceptModel jwtSTM = new JWTInterceptModel();
-			JWTInterceptTab jwtST = new JWTInterceptTab(jwtSTM, rSyntaxTextAreaFactory);
+			JWTInterceptTab jwtST = new JWTInterceptTab(jwtSTM, rSyntaxTextAreaFactory,api);
 			jwtTC = new JWTResponseInterceptTabController(jwtSTM, jwtST);
 		} else {
 			// Read Only
 			JWTTabModel jwtTM = new JWTTabModel();
-			JWTViewTab jwtVT = new JWTViewTab(jwtTM, rSyntaxTextAreaFactory);
+			JWTViewTab jwtVT = new JWTViewTab(jwtTM, rSyntaxTextAreaFactory, api);
 			jwtTC = new JWTResponseTabController(jwtTM, jwtVT);
 		}
 

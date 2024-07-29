@@ -2,12 +2,12 @@ Uuid: f923cbf91698420890354c1d8958fee6
 ExtensionType: 1
 Name: JSON Web Tokens
 RepoName: json-web-tokens
-ScreenVersion: 2.4
-SerialVersion: 26
-MinPlatformVersion: 0
+ScreenVersion: 2.6
+SerialVersion: 28
+MinPlatformVersion: 15
 ProOnly: False
 Author: Oussama Zgheb
 ShortDescription: Enables Burp to decode and manipulate JSON web tokens.
-EntryPoint: target/JWT4B-jar-with-dependencies.jar
-BuildCommand: mvn package -DskipTests=true -Dmaven.javadoc.skip=true -B
+EntryPoint: build/libs/JWT4B_Montoya-1.0-SNAPSHOT.jar
+BuildCommand: ./gradlew jar
 SupportedProducts: Pro, Community

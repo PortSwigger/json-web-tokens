@@ -1,6 +1,8 @@
 <p><b>JSON Web Tokens (JWT4B)</b> lets you decode and manipulate JSON web tokens on the fly, 
 check their validity and automate common attacks.</p>
-<p><b>Features</b></p>
+
+<h2>Features</h2>
+
 <ul>
   <li>Automatic recognition</li>
   <li>JWT Editor</li>
@@ -10,3 +12,11 @@ check their validity and automate common attacks.</p>
   <li>Validity checks and support for 'expires', 'not before', 'issued at' fields in the payload</li>
   <li>Automatic tests for security flags in cookie transmitted JWTs</li>
 </ul>
+
+<h2>Configuration</h2>
+
+<p>A configuration file is generated at <code class="InlineCode">%user.home%/.JWT4B/config.json</code></p>
+
+<p>You can use the "Change config" button to open this file from the extension-generated tab and make any adjustments.</p>
+
+<p>Changes to the configuration require a reload. If the file is deleted, it will regenerate with default settings. Setting <code class="InlineCode">resetEditor</code> to <code class="InlineCode">false</code> preserves editor state across requests, useful for testing in Repeater.</p>

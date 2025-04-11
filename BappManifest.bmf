@@ -2,8 +2,8 @@ Uuid: f923cbf91698420890354c1d8958fee6
 ExtensionType: 1
 Name: JSON Web Tokens
 RepoName: json-web-tokens
-ScreenVersion: 2.8
-SerialVersion: 31
+ScreenVersion: 2.8.1
+SerialVersion: 32
 MinPlatformVersion: 15
 ProOnly: False
 Author: Oussama Zgheb
